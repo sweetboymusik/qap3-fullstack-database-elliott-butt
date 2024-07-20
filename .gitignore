@@ -1,0 +1,13 @@
+# Dependency directories
+node_modules/
+coverage/
+
+# Log files and directories
+logs/
+*.log
+
+# dotenv environment variable files
+.env
+
+# archived files
+*.zip
