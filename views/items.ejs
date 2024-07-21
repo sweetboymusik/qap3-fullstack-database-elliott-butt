@@ -1,0 +1,7 @@
+<body>
+  <% if (items.length > 0) { %> <% items.forEach(item => { %>
+  <b><%= item.item_name %> <%= item.price %></b> <br />
+  <% }) %> <% } else { %>
+  <p>No items found.</p>
+  <% } %>
+</body>
