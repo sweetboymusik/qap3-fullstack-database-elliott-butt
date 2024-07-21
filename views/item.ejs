@@ -1,0 +1,18 @@
+<body>
+  <%- include('./partials/nav.ejs') %>
+
+  <h1>Item</h1>
+
+  <% if (item.length > 0) { %> <% item.forEach(item => { %>
+
+  <div class="category-card">
+    <p><%= item.item_name %></p>
+    <p><%= item.description %></p>
+    <p><%= item.price %></p>
+    <img src="../assets/<%= item.image_url %>" alt="" />
+  </div>
+
+  <% }) %> <% } else { %>
+  <p>No item with that name found.</p>
+  <% } %>
+</body>
