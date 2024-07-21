@@ -12,10 +12,17 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
+// set up routes
+const browse = require("./routes/browse");
+app.use("/browse", browse);
+
+const edit = require("./routes/edit");
+app.use("/edit", edit);
+
 app.get("/", (req, res) => {
   res.render("index.ejs");
 });
 
 app.listen(PORT, () => {
-  console.log(`Simple app running on port ${PORT}.`);
+  console.log(`App is running on port ${PORT}...`);
 });

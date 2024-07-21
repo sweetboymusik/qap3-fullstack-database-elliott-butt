@@ -1,0 +1,11 @@
+<body>
+  <%- include('./partials/nav.ejs') %>
+
+  <h1>Items</h1>
+
+  <% if (items.length > 0) { %> <% items.forEach(item => { %>
+  <b><%= item.item_name %> <%= item.price %></b> <br />
+  <% }) %> <% } else { %>
+  <p>No items found.</p>
+  <% } %>
+</body>
