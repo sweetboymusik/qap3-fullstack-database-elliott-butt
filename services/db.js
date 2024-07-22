@@ -1,5 +1,7 @@
+// import pg Pool
 const Pool = require("pg").Pool;
 
+// configure pool
 const pool = new Pool({
   user: "postgres",
   host: "localhost",

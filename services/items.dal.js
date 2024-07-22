@@ -1,6 +1,9 @@
+// import required libraries and db connection
 const dal = require("./db");
 const _ = require("lodash");
 
+// add item into database
+// by passing in form information from /add page
 function addItem(item) {
   return new Promise(function (resolve, reject) {
     const sql = `INSERT INTO public.items (item_name, price, category, description, image_url) VALUES ($1, $2, $3, $4, $5);`;
@@ -25,6 +28,8 @@ function addItem(item) {
   });
 }
 
+// delete item into database
+// by passing in the name of the item to delete
 function deleteItem(name) {
   return new Promise(function (resolve, reject) {
     const sql = "DELETE FROM items WHERE item_name=$1";
@@ -39,6 +44,7 @@ function deleteItem(name) {
   });
 }
 
+// get all items from database
 function getAllItems() {
   return new Promise(function (resolve, reject) {
     const sql = "SELECT * from items";
@@ -53,6 +59,8 @@ function getAllItems() {
   });
 }
 
+// get all items from database
+// in a specified category
 function getItemsByCategory(category) {
   return new Promise(function (resolve, reject) {
     const sql = "SELECT * from items WHERE category = $1";
@@ -67,6 +75,8 @@ function getItemsByCategory(category) {
   });
 }
 
+// get item from database
+// by specified name
 function getItemByName(name) {
   return new Promise(function (resolve, reject) {
     const sql = "SELECT * from items WHERE item_name = $1";
@@ -82,6 +92,8 @@ function getItemByName(name) {
   });
 }
 
+// get item from database
+// by specified ID
 function getItemById(id) {
   return new Promise(function (resolve, reject) {
     const sql = "SELECT * from items WHERE item_id = $1";
@@ -96,6 +108,9 @@ function getItemById(id) {
   });
 }
 
+// update item (patch or put)
+// by passing in form information from /edit/name/:name
+// or /edit/id/:id page
 function patchItem(item) {
   return new Promise(function (resolve, reject) {
     const sql =
@@ -121,6 +136,7 @@ function patchItem(item) {
   });
 }
 
+// export functions
 module.exports = {
   addItem,
   deleteItem,

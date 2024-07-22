@@ -1,8 +1,8 @@
-// import express and set up router
+// import/configure express
 const express = require("express");
 const router = express.Router();
 
-// import DAL functions
+// import needed functions from DAL
 const {
   getItemByName,
   getItemById,
@@ -10,7 +10,7 @@ const {
   deleteItem,
 } = require("../services/items.dal");
 
-// base route (/edit)
+// edit route (/edit)
 router.get("/", async (req, res) => {
   try {
     res.render("edit", { message: "" });
@@ -19,6 +19,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// edit by name route (/edit/name)
 router.post("/name", async (req, res) => {
   try {
     const item = await getItemByName(req.body.item_name);
@@ -31,6 +32,7 @@ router.post("/name", async (req, res) => {
   } catch (error) {}
 });
 
+// edit by ID route (/edit/id)
 router.post("/id", async (req, res) => {
   try {
     const item = await getItemById(req.body.item_id);
@@ -85,7 +87,5 @@ router.delete("/name/:name", async (req, res) => {
     res.render("deleted");
   } catch (error) {}
 });
-
-// delete item
 
 module.exports = router;
