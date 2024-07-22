@@ -4,18 +4,29 @@
 
 <body>
   <%- include('./partials/nav.ejs') %>
-  <h1>EDIT</h1>
-  <h3>Search By Name or ID</h3>
+  <div class="titles">
+    <h1>EDIT/DELETE</h1>
+    <hr />
+    <p>Search for an item by name or ID.</p>
+  </div>
 
-  <form action="/edit/name" method="get">
-    <label for="item_name">Item Name: </label>
-    <input type="text" id="item_name" name="item_name" />
-    <button type="submit">Search By Name</button>
-  </form>
+  <div class="search">
+    <form action="/edit/name" method="post" class="edit-form">
+      <div class="form-field">
+        <label for="item_name">Item Name: </label>
+        <input type="text" id="item_name" name="item_name" />
+      </div>
+      <button type="submit" class="search-button">Search By Name</button>
+    </form>
 
-  <form action="/edit/name" method="get">
-    <label for="item_id">Item ID: </label>
-    <input type="text" id="item_id" name="item_id" />
-    <button type="submit">Search By ID</button>
-  </form>
+    <form action="/edit/id" method="post" class="edit-form">
+      <div class="form-field">
+        <label for="item_id">Item ID: </label>
+        <input type="text" id="item_id" name="item_id" />
+      </div>
+      <button type="submit" class="search-button">Search By ID</button>
+    </form>
+  </div>
+
+  <p class="search-message"><%= message %></p>
 </body>

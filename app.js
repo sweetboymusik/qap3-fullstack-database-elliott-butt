@@ -19,16 +19,17 @@ app.use("/browse", browse);
 const edit = require("./routes/edit");
 app.use("/edit", edit);
 
+const add = require("./routes/add");
+app.use("/add", add);
+
 app.use("/public", express.static("public"));
 
+// base route
 app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/add", (req, res) => {
-  res.render("add");
-});
-
+// start the server
 app.listen(PORT, () => {
   console.log(`App is running on port ${PORT}...`);
 });

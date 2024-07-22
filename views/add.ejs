@@ -5,8 +5,13 @@
 <body>
   <%- include('./partials/nav.ejs') %>
 
-  <h1>Add</h1>
-  <form action="/add?_method=PATCH" method="post">
+  <div class="titles">
+    <h1>ADD</h1>
+    <hr />
+    <p>Add an item to the database.</p>
+  </div>
+
+  <form action="/add" method="post" class="add-form">
     <div class="form-field">
       <label for="item_name">Item Name: </label>
       <input type="text" id="item_name" name="item_name" required />
@@ -45,6 +50,8 @@
       />
     </div>
 
-    <button type="submit">ADD ITEM</button>
+    <button type="submit" class="add-button">ADD ITEM</button>
   </form>
+
+  <p><%= message %></p>
 </body>
