@@ -1,5 +1,5 @@
 <head>
-  <link href="../public/css/styles.css" rel="stylesheet" type="text/css" />
+  <link href="/../public/css/styles.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -14,7 +14,7 @@
         name="item_id"
         id="item_id"
         value="<%= item.item_id %>"
-        disabled
+        readonly
       />
     </div>
 
@@ -64,11 +64,14 @@
         type="text"
         name="image_url"
         id="image_url"
-        disabled
         value="<%= item.image_url %>"
+        readonly
       />
     </div>
 
     <button type="submit">UPDATE (PATCH)</button>
   </form>
+  <form action=""><button type="submit">DELETE ITEM</button></form>
+
+  <p><%= message %></p>
 </body>

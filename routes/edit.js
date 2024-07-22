@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
 router.get("/name/:name", async (req, res) => {
   try {
     const item = await getItemByName(req.params.name);
-    res.render("edititem", { item: item[0] });
+    res.render("edititem", { item: item[0], message: "" });
   } catch (error) {
     res.render("503");
   }
@@ -36,7 +36,8 @@ router.get("/name/:name", async (req, res) => {
 router.get("/id/:id", async (req, res) => {
   try {
     const item = await getItemById(req.params.id);
-    res.render("edititem", { item: item[0] });
+    res.status = 200;
+    res.render("edititem", { item: item[0], message: "" });
   } catch (error) {
     res.render("503");
   }
@@ -46,8 +47,7 @@ router.get("/id/:id", async (req, res) => {
 router.patch("/name/:name", async (req, res) => {
   try {
     await patchItem(req.body);
-    res.statusCode = 200;
-    res.json({ message: "OK", status: 200 });
+    res.render("success");
   } catch (error) {}
 });
 

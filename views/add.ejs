@@ -1,0 +1,50 @@
+<head>
+  <link href="../public/css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <%- include('./partials/nav.ejs') %>
+
+  <h1>Add</h1>
+  <form action="/add?_method=PATCH" method="post">
+    <div class="form-field">
+      <label for="item_name">Item Name: </label>
+      <input type="text" id="item_name" name="item_name" required />
+    </div>
+
+    <div class="form-field">
+      <label for="category">Category: </label>
+      <select name="category" id="category" required>
+        <option value="1">Fruits</option>
+        <option value="2">Vegetables</option>
+        <option value="3">Dairy</option>
+        <option value="4">Beverages</option>
+        <option value="5">Meat</option>
+        <option value="6">Bakery</option>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="price">Price: </label>
+      <input type="number" step="any" id="price" name="price" required />
+    </div>
+
+    <div class="form-field">
+      <label for="description">Description: </label>
+      <textarea name="description" id="description" required> </textarea>
+    </div>
+
+    <div class="form-field">
+      <label for="image_url">Image URL: </label>
+      <input
+        type="text"
+        name="image_url"
+        id="image_url"
+        value="placeholder.jpg"
+        readonly
+      />
+    </div>
+
+    <button type="submit">ADD ITEM</button>
+  </form>
+</body>

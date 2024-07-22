@@ -22,7 +22,11 @@ app.use("/edit", edit);
 app.use("/public", express.static("public"));
 
 app.get("/", (req, res) => {
-  res.render("index.ejs");
+  res.render("index");
+});
+
+app.get("/add", (req, res) => {
+  res.render("add");
 });
 
 app.listen(PORT, () => {

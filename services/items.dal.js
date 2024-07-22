@@ -80,10 +80,6 @@ function patchItem(item) {
         }
       }
     );
-
-    console.log(item.item_name);
-    console.log(item.price);
-    console.log(item.description);
   });
 }
 
