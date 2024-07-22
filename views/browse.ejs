@@ -1,16 +1,24 @@
+<head>
+  <link href="../public/css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
 <body>
   <%- include('./partials/nav.ejs') %>
 
   <h1>Browse</h1>
   <h2>Categories!</h2>
 
-  <div class="category-card"><h3>All</h3></div>
+  <div class="card-container">
+    <a class="category-card" href="/browse/all"><h3>All</h3></a>
 
-  <% if (categories.length > 0) { %> <% categories.forEach(category => { %>
+    <% if (categories.length > 0) { %> <% categories.forEach(category => { %>
 
-  <div class="category-card"><h3><%= category.name %></h3></div>
+    <a class="category-card" href="/browse/<%= category.name.toLowerCase() %>">
+      <h3><%= category.name %></h3>
+    </a>
 
-  <% }) %> <% } else { %>
-  <p>No categories found.</p>
-  <% } %>
+    <% }) %> <% } else { %>
+    <p>No categories found.</p>
+    <% } %>
+  </div>
 </body>

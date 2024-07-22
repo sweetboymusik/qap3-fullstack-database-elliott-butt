@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const { getAllItems, getItemsByCategory } = require("../services/items.dal");
-const { getAllCategories } = require("../services/categories.dal");
+const {
+  getAllCategories,
+  getCategoryByName,
+} = require("../services/categories.dal");
 
 // /browse
 router.get("/", async (req, res) => {
@@ -20,7 +23,7 @@ router.get("/all", async (req, res) => {
   try {
     let items = await getAllItems(req.params.category);
     if (items.length === 0) res.render("no items");
-    else res.render("items", { items });
+    else res.render("items", { items, category: "All" });
   } catch {
     res.render("503");
   }
@@ -28,9 +31,11 @@ router.get("/all", async (req, res) => {
 
 router.get("/:category", async (req, res) => {
   try {
-    let items = await getItemsByCategory(req.params.category);
+    let category = await getCategoryByName(req.params.category);
+    let items = await getItemsByCategory(category[0].id);
+
     if (items.length === 0) res.render("no items");
-    else res.render("items", { items });
+    else res.render("items", { items, category: category[0].name });
   } catch {
     res.render("503");
   }

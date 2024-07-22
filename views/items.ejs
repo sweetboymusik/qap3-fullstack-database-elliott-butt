@@ -1,11 +1,30 @@
+<head>
+  <link href="../public/css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
 <body>
   <%- include('./partials/nav.ejs') %>
 
-  <h1>Items</h1>
+  <h1><%= category %></h1>
 
-  <% if (items.length > 0) { %> <% items.forEach(item => { %>
-  <b><%= item.item_name %> <%= item.price %></b> <br />
-  <% }) %> <% } else { %>
-  <p>No items found.</p>
-  <% } %>
+  <div class="items-container">
+    <% if (items.length > 0) { %> <% items.forEach(item => { %>
+
+    <div class="item-card cat-<%= item.category %>">
+      <button class="item-card-delete">X</button>
+      <span class="item-card-title"> <%= item.item_name %> </span>
+      <img
+        class="item-card-img"
+        src="../public/assets/<%= item.image_url %>"
+        alt=""
+      />
+      <p><%= item.description %></p>
+      <span>$<%= item.price %></span>
+      <a href="/edit/id/<%= item.item_id %>" class="item-card-edit">EDIT</a>
+    </div>
+
+    <% }) %> <% } else { %>
+    <p>No items found.</p>
+    <% } %>
+  </div>
 </body>

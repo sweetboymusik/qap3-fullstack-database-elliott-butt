@@ -58,9 +58,35 @@ function getItemById(id) {
   });
 }
 
+function patchItem(item) {
+  return new Promise(function (resolve, reject) {
+    const sql =
+      "UPDATE items SET item_name=$2, price=$3, category=$4, description=$5 WHERE item_id=$1";
+
+    dal.query(
+      sql,
+      [
+        item.item_id,
+        item.item_name,
+        item.price,
+        item.category,
+        item.description,
+      ],
+      (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result.rows);
+        }
+      }
+    );
+  });
+}
+
 module.exports = {
   getAllItems,
   getItemsByCategory,
   getItemByName,
   getItemById,
+  patchItem,
 };

@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.category-card {
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightblue;
+  width: 240px;
+  height: 160px;
+  border-radius: 2px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.items-container {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.item-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: lightcoral;
+  padding: 8px 16px;
+  width: 240px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border-radius: 2px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.item-card-delete {
+  border: none;
+  position: absolute;
+  top: -8;
+  left: -8;
+  height: 24px;
+  width: 24px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  transition: all 0.05s ease;
+}
+
+.item-card-delete:hover {
+  transform: scale(1.25);
+  color: #222;
+  background-color: rgb(255, 0, 0);
+  cursor: pointer;
+}
+
+.item-card-edit {
+  text-decoration: none;
+  border: none;
+  position: absolute;
+  bottom: -8;
+  right: -8;
+  height: 24px;
+  width: 48px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border-radius: 100px;
+  text-align: center;
+  transition: all 0.05s ease;
+}
+
+.item-card-edit:hover {
+  transform: scale(1.25);
+  color: #222;
+  background-color: rgb(87, 231, 80);
+  cursor: pointer;
+}
+
+.item-card p {
+  text-align: center;
+  font-size: 10pt;
+}
+
+.item-card-title {
+  font-weight: 500;
+  font-size: 16pt;
+  text-align: center;
+}
+
+.category-tag {
+  background-color: rgba(0, 0, 0, 0.25);
+  width: 80px;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.item-card-img {
+  height: 120px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.cat-1 {
+  background-color: rgb(205, 163, 214);
+}
+
+.cat-2 {
+  background-color: rgb(121, 201, 121);
+}
+
+.cat-3 {
+  background-color: rgb(140, 140, 199);
+}
+
+.cat-4 {
+  background-color: rgb(202, 144, 104);
+}
+
+.cat-5 {
+  background-color: rgb(201, 96, 96);
+}
+
+.cat-6 {
+  background-color: rgb(206, 183, 79);
+}

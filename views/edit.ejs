@@ -1,5 +1,21 @@
+<head>
+  <link href="../public/css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
 <body>
   <%- include('./partials/nav.ejs') %>
-
   <h1>EDIT</h1>
+  <h3>Search By Name or ID</h3>
+
+  <form action="/edit/name" method="get">
+    <label for="item_name">Item Name: </label>
+    <input type="text" id="item_name" name="item_name" />
+    <button type="submit">Search By Name</button>
+  </form>
+
+  <form action="/edit/name" method="get">
+    <label for="item_id">Item ID: </label>
+    <input type="text" id="item_id" name="item_id" />
+    <button type="submit">Search By ID</button>
+  </form>
 </body>
