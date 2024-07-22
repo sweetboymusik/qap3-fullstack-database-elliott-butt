@@ -5,13 +5,22 @@
 <body>
   <%- include('./partials/nav.ejs') %>
 
-  <h1><%= category %></h1>
+  <div class="titles">
+    <h1 class="category-title"><%= category %></h1>
+    <hr />
+  </div>
 
   <div class="items-container">
     <% if (items.length > 0) { %> <% items.forEach(item => { %>
 
     <div class="item-card cat-<%= item.category %>">
-      <button class="item-card-delete">X</button>
+      <form
+        action="/edit/name/<%= item.item_name %>?_method=DELETE"
+        method="POST"
+        class="item-card-delete"
+      >
+        <button type="submit" class="delete-button">X</button>
+      </form>
       <span class="item-card-title"> <%= item.item_name %> </span>
       <img
         class="item-card-img"
@@ -20,7 +29,13 @@
       />
       <p><%= item.description %></p>
       <span>$<%= item.price %></span>
-      <a href="/edit/id/<%= item.item_id %>" class="item-card-edit">EDIT</a>
+      <form
+        action="/edit/name/<%= item.item_name %>"
+        method="GET"
+        class="item-card-edit"
+      >
+        <button type="submit" class="edit-button">EDIT</button>
+      </form>
     </div>
 
     <% }) %> <% } else { %>

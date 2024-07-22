@@ -1,6 +1,44 @@
 const dal = require("./db");
 const _ = require("lodash");
 
+function addItem(item) {
+  return new Promise(function (resolve, reject) {
+    const sql = `INSERT INTO public.items (item_name, price, category, description, image_url) VALUES ($1, $2, $3, $4, $5);`;
+
+    dal.query(
+      sql,
+      [
+        item.item_name,
+        item.price,
+        item.category,
+        item.description,
+        item.image_url,
+      ],
+      (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result.rows);
+        }
+      }
+    );
+  });
+}
+
+function deleteItem(name) {
+  return new Promise(function (resolve, reject) {
+    const sql = "DELETE FROM items WHERE item_name=$1";
+
+    dal.query(sql, [name], (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result.rows);
+      }
+    });
+  });
+}
+
 function getAllItems() {
   return new Promise(function (resolve, reject) {
     const sql = "SELECT * from items";
@@ -84,6 +122,8 @@ function patchItem(item) {
 }
 
 module.exports = {
+  addItem,
+  deleteItem,
   getAllItems,
   getItemsByCategory,
   getItemByName,

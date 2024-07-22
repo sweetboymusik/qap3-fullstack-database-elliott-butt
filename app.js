@@ -19,14 +19,13 @@ app.use("/browse", browse);
 const edit = require("./routes/edit");
 app.use("/edit", edit);
 
+const add = require("./routes/add");
+app.use("/add", add);
+
 app.use("/public", express.static("public"));
 
 app.get("/", (req, res) => {
   res.render("index");
-});
-
-app.get("/add", (req, res) => {
-  res.render("add");
 });
 
 app.listen(PORT, () => {

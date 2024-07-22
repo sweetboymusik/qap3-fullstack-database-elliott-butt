@@ -5,8 +5,13 @@
 <body>
   <%- include('./partials/nav.ejs') %>
 
-  <h1>EDIT</h1>
-  <form action="/edit/name/<%= item.item_name %>?_method=PATCH" method="post">
+  <div class="titles">
+    <h1>EDIT/DELETE</h1>
+    <hr />
+    <p>Edit desired fields for the selected item.</p>
+  </div>
+
+  <form action="/edit/name/<%= item.item_name %>?_method=PATCH" method="post" class="edit-form">
     <div class="form-field">
       <label for="item_id">Item ID: </label>
       <input
@@ -31,12 +36,12 @@
     <div class="form-field">
       <label for="category">Category: </label>
       <select name="category" id="category">
-        <option value="1">Fruits</option>
-        <option value="2">Vegetables</option>
-        <option value="3">Dairy</option>
-        <option value="4">Beverages</option>
-        <option value="5">Meat</option>
-        <option value="6">Bakery</option>
+        <option value="1" <%= item.category === 1 ? 'selected' : '' %>>Fruits</option>
+        <option value="2" <%= item.category === 2 ? 'selected' : '' %>>Vegetables</option>
+        <option value="3" <%= item.category === 3 ? 'selected' : '' %>>Dairy</option>
+        <option value="4" <%= item.category === 4 ? 'selected' : '' %>>Beverages</option>
+        <option value="5" <%= item.category === 5 ? 'selected' : '' %>>Meat</option>
+        <option value="6" <%= item.category === 6 ? 'selected' : '' %>>Bakery</option>
       </select>
     </div>
 
@@ -69,9 +74,9 @@
       />
     </div>
 
-    <button type="submit">UPDATE (PATCH)</button>
+    <button type="submit" class="update-button">UPDATE (PATCH)</button>
   </form>
-  <form action=""><button type="submit">DELETE ITEM</button></form>
+  <form action="/edit/name/<%= item.item_name %>?_method=DELETE" method="POST"><button type="submit" class="delete-button-edit">DELETE ITEM</button></form>
 
   <p><%= message %></p>
 </body>
