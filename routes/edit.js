@@ -62,6 +62,14 @@ router.get("/id/:id", async (req, res) => {
   }
 });
 
+// put item
+router.put("/name/:name", async (req, res) => {
+  try {
+    await patchItem(req.body);
+    res.render("updated");
+  } catch (error) {}
+});
+
 // patch item
 router.patch("/name/:name", async (req, res) => {
   try {

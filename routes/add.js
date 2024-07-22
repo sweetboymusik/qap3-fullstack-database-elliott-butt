@@ -1,8 +1,11 @@
+// import/configure express
 const express = require("express");
 const router = express.Router();
+
+// import needed functions from DAL
 const { addItem } = require("../services/items.dal");
 
-// /browse
+// add route (/add)
 router.get("/", async (req, res) => {
   try {
     res.render("add", { message: "" });
@@ -11,6 +14,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// add item to database
 router.post("/", async (req, res) => {
   try {
     await addItem(req.body);

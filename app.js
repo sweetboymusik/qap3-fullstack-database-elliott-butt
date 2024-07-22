@@ -24,10 +24,12 @@ app.use("/add", add);
 
 app.use("/public", express.static("public"));
 
+// base route
 app.get("/", (req, res) => {
   res.render("index");
 });
 
+// start the server
 app.listen(PORT, () => {
   console.log(`App is running on port ${PORT}...`);
 });
